@@ -1,0 +1,12 @@
+---
+description: Select focused report-writing, evidence-review, or document-formatting instructions when drafting, reviewing, or presenting reports.
+alwaysApply: false
+---
+
+For report tasks, read rules/REPORT_SKILL_ROUTING.md and the relevant skills/<skill-name>/SKILL.md.
+Do not apply all three skills to a spelling fix or a formatting-only request.
+Follow the user's current scope, permitted sources, template, and target application.
+Keep factual results separate from interpretation and future work.
+Use actual document tools and render the final artifact before claiming layout verification.
+
+When copying this rule to another project, also copy rules/REPORT_SKILL_ROUTING.md and the three skill folders under skills/, preserving these relative paths, or update the paths to their installed locations.

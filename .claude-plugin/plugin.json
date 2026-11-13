@@ -1,0 +1,24 @@
+{
+  "name": "ai-report-skills",
+  "version": "0.1.0",
+  "description": "Vietnamese-first report writing, evidence review, and Word/WPS formatting.",
+  "author": {
+    "name": "TienguyenVT",
+    "url": "https://github.com/TienguyenVT"
+  },
+  "license": "MIT",
+  "keywords": [
+    "reports",
+    "writing",
+    "citations",
+    "docx",
+    "vietnamese"
+  ],
+  "skills": [
+    "./skills/ai-report-writing",
+    "./skills/ai-report-evidence",
+    "./skills/ai-report-formatting"
+  ],
+  "repository": "https://github.com/TienguyenVT/AI_Report_Skills",
+  "homepage": "https://github.com/TienguyenVT/AI_Report_Skills"
+}

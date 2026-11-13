@@ -1,0 +1,20 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "ai-report-skills",
+  "version": "0.1.0",
+  "description": "Vietnamese-first skills for writing, evidence review, and document formatting.",
+  "author": {
+    "name": "TienguyenVT",
+    "url": "https://github.com/TienguyenVT"
+  },
+  "license": "MIT",
+  "keywords": [
+    "reports",
+    "writing",
+    "citations",
+    "docx",
+    "vietnamese"
+  ],
+  "repository": "https://github.com/TienguyenVT/AI_Report_Skills",
+  "homepage": "https://github.com/TienguyenVT/AI_Report_Skills"
+}

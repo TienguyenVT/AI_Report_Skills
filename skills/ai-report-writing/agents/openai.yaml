@@ -1,0 +1,4 @@
+interface:
+  display_name: "Viết và biên tập báo cáo"
+  short_description: "Xây dàn ý, viết rõ ý và tổ chức nội dung báo cáo"
+  default_prompt: "Dùng $ai-report-writing để viết hoặc biên tập báo cáo từ tài liệu của tôi, giữ đúng phạm vi và bằng chứng."
