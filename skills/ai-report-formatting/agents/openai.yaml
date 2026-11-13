@@ -1,4 +1,4 @@
 interface:
-  display_name: "Trình bày báo cáo Word và WPS"
-  short_description: "Chuẩn hóa bố cục, giữ nội dung và kiểm tra bản in"
-  default_prompt: "Dùng $ai-report-formatting để chuẩn hóa báo cáo theo mẫu, giữ công thức và kiểm tra bố cục bản cuối."
+  display_name: "Report Presentation"
+  short_description: "Improve report hierarchy, layout, and displays"
+  default_prompt: "Use $ai-report-formatting to improve this report's presentation in the target format while preserving its content."

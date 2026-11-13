@@ -1,7 +1,7 @@
 {
   "name": "ai-report-skills",
-  "version": "0.1.0",
-  "description": "Vietnamese-first report writing, evidence review, and Word/WPS formatting.",
+  "version": "0.2.0",
+  "description": "Seven focused skills for report writing, evidence, revision, presentation, artifact QA, source comparison, and critical review.",
   "author": {
     "name": "TienguyenVT",
     "url": "https://github.com/TienguyenVT"
@@ -10,14 +10,20 @@
   "keywords": [
     "reports",
     "writing",
+    "evidence",
     "citations",
-    "docx",
-    "vietnamese"
+    "editing",
+    "document-qa",
+    "review"
   ],
   "skills": [
     "./skills/ai-report-writing",
     "./skills/ai-report-evidence",
-    "./skills/ai-report-formatting"
+    "./skills/ai-report-formatting",
+    "./skills/ai-report-revision",
+    "./skills/ai-report-document-qa",
+    "./skills/ai-report-source-comparison",
+    "./skills/ai-report-critical-review"
   ],
   "repository": "https://github.com/TienguyenVT/AI_Report_Skills",
   "homepage": "https://github.com/TienguyenVT/AI_Report_Skills"

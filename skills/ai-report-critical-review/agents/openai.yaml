@@ -1,0 +1,4 @@
+interface:
+  display_name: "Report Critical Review"
+  short_description: "Assess whether evidence supports conclusions"
+  default_prompt: "Use $ai-report-critical-review to assess whether this report's methods and evidence justify its conclusions."

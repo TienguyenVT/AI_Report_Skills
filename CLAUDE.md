@@ -1,9 +1,9 @@
 # AI Report Skills
 
-For report tasks, follow the routing rule below and load the relevant skill from skills/. Keep the user's project-specific requirements and existing authorization scope.
+For report tasks, follow the routing rule below and load only the relevant skill. Preserve the user's language, report requirements, and authorization scope.
 
 @rules/REPORT_SKILL_ROUTING.md
 
-When maintaining this repository, run python scripts/validate.py and python -m unittest discover -s tests. Do not include private reports, data, machine paths, backups, or credentials.
+When maintaining this repository, run python scripts/validate.py. Keep source adaptations and licenses documented, use English skill instructions, and maintain both README languages. Keep private artifacts outside the package.
 
-Installing this repository as a plugin exposes its skills; it does not install this root CLAUDE.md into unrelated projects. Merge the routing rule into a consuming project's CLAUDE.md if explicit project-level routing is wanted.
+Installing the plugin exposes its skills; this root CLAUDE.md is not automatically installed as project context elsewhere. Merge the routing rule into a consuming project's instructions when explicit routing is wanted.

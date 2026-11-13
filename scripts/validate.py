@@ -9,7 +9,15 @@ from urllib.parse import unquote, urlsplit
 
 import yaml
 
-SKILLS = {"ai-report-writing", "ai-report-evidence", "ai-report-formatting"}
+SKILLS = {
+    "ai-report-writing", "ai-report-evidence", "ai-report-formatting",
+    "ai-report-revision", "ai-report-document-qa", "ai-report-source-comparison",
+    "ai-report-critical-review",
+}
+UPSTREAM_ADAPTATIONS = {
+    "ai-report-writing", "ai-report-evidence", "ai-report-formatting",
+    "ai-report-critical-review",
+}
 IGNORED = {".git", "__pycache__", ".venv", "venv"}
 PRIVATE_SUFFIXES = {".docx", ".pdf", ".zip", ".bak"}
 LOCAL_PATH = re.compile(r"(?i)(?:[a-z]:[\\/](?:Users|Projects)[\\/]|/(?:Users|home)/[^/\s]+/)")
@@ -43,12 +51,20 @@ def validate(root: Path) -> list[str]:
         check(portable.get("license") == "MIT", "Expected MIT license")
         check(bool(re.fullmatch(r"\d+\.\d+\.\d+", portable.get("version", ""))),
               "Plugin version must use three numeric components")
-        check((root / "LICENSE").read_text(encoding="utf-8").startswith("MIT License"),
-              "Missing MIT license text")
+        project_license = (root / "LICENSE").read_text(encoding="utf-8").strip()
+        check(project_license.startswith("MIT License"), "Missing MIT license text")
+        upstream_license = (root / "licenses/K-Dense-MIT.txt").read_text(encoding="utf-8").strip()
+        check(upstream_license.startswith("MIT License") and
+              "Copyright (c) 2025 K-Dense Inc." in upstream_license,
+              "Missing upstream MIT attribution")
+        for document in ("PROVENANCE.md", "THIRD_PARTY_NOTICES.md", "README.md", "README.vi.md"):
+            check(bool(within(document).read_text(encoding="utf-8").strip()),
+                  f"Empty package document: {document}")
 
         declared = claude.get("skills", [])
-        check(set(declared) == {f"./skills/{name}" for name in SKILLS},
-              "Claude manifest must declare all three skill folders")
+        check(len(declared) == len(SKILLS) and
+              set(declared) == {f"./skills/{name}" for name in SKILLS},
+              "Claude manifest must declare each of the seven skill folders once")
         for path in declared:
             within(path)
 
@@ -59,6 +75,8 @@ def validate(root: Path) -> list[str]:
             check(within(entry["source"]) == root, "Claude marketplace source must resolve to plugin root")
         check(len(marketplace["plugins"]) == 1, "Expected one Claude marketplace entry")
         check(marketplace.get("name") == portable["name"], "Claude marketplace name mismatch")
+        check(marketplace.get("metadata", {}).get("version") == portable["version"],
+              "Claude marketplace metadata version mismatch")
         for entry in codex["plugins"]:
             check(entry.get("name") == portable["name"], "Codex marketplace identity mismatch")
             check(entry["source"].get("source") == "local", "Expected local Codex source")
@@ -68,9 +86,13 @@ def validate(root: Path) -> list[str]:
         check(len(codex["plugins"]) == 1, "Expected one Codex marketplace entry")
 
         actual = {p.name for p in (root / "skills").iterdir() if p.is_dir()}
-        check(actual == SKILLS, "Skill directory inventory differs from the three declared skills")
-        for name in SKILLS:
+        check(actual == SKILLS, "Skill directory inventory differs from the seven declared skills")
+        for name in sorted(SKILLS):
             skill = root / "skills" / name
+            notice = (skill / "LICENSE.txt").read_text(encoding="utf-8")
+            check(project_license in notice, f"{name}: missing standalone project license")
+            if name in UPSTREAM_ADAPTATIONS:
+                check(upstream_license in notice, f"{name}: missing standalone upstream license")
             text = (skill / "SKILL.md").read_text(encoding="utf-8")
             parts = text.split("---", 2)
             check(len(parts) == 3 and parts[0] == "", f"{name}: missing YAML frontmatter")
@@ -83,6 +105,8 @@ def validate(root: Path) -> list[str]:
             check(meta.get("license") == "MIT", f"{name}: missing license")
             check(bool(parts[2].strip()), f"{name}: empty instructions")
             ui = yaml.safe_load((skill / "agents/openai.yaml").read_text(encoding="utf-8"))
+            check(bool(ui["interface"].get("display_name", "").strip()),
+                  f"{name}: missing display name")
             check("$" + name in ui["interface"]["default_prompt"], f"{name}: default prompt mismatch")
             check(25 <= len(ui["interface"]["short_description"]) <= 64,
                   f"{name}: UI description length")
@@ -116,6 +140,10 @@ def validate(root: Path) -> list[str]:
                     linked = (file.parent / unquote(parsed.path)).resolve()
                     check(linked.is_relative_to(root), f"{relative}: link escapes package: {target}")
                     check(linked.exists(), f"{relative}: broken link: {target}")
+                    if len(relative.parts) >= 3 and relative.parts[0] == "skills":
+                        skill_root = root / "skills" / relative.parts[1]
+                        check(linked.is_relative_to(skill_root),
+                              f"{relative}: standalone link escapes skill: {target}")
     except (OSError, ValueError, TypeError, KeyError, AttributeError, yaml.YAMLError) as error:
         errors.append(f"Invalid or missing package data: {error}")
     return errors
@@ -127,4 +155,4 @@ if __name__ == "__main__":
         print("ERROR:", issue)
     if issues:
         sys.exit(1)
-    print("PASS: three skills, manifests, local links, and package hygiene.")
+    print("PASS: seven skills, manifests, standalone resources, licenses, links, and package hygiene.")

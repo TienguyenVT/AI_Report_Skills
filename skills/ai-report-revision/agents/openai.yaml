@@ -1,0 +1,4 @@
+interface:
+  display_name: "Report Revision"
+  short_description: "Manage scoped revisions and preserve user work"
+  default_prompt: "Use $ai-report-revision to apply this feedback to the current report while preserving unrelated content and edits."

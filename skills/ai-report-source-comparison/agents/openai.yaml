@@ -1,0 +1,4 @@
+interface:
+  display_name: "Report Source Comparison"
+  short_description: "Compare definitions, methods, and configurations"
+  default_prompt: "Use $ai-report-source-comparison to compare these sources with exact locations, conditions, and unresolved differences."

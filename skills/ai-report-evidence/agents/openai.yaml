@@ -1,4 +1,4 @@
 interface:
-  display_name: "Kiểm chứng báo cáo và nguồn"
-  short_description: "Đối chiếu số liệu, lập luận và nguồn trích dẫn"
-  default_prompt: "Dùng $ai-report-evidence để kiểm tra số liệu, nhận định và trích dẫn trong báo cáo theo các nguồn được phép."
+  display_name: "Report Evidence"
+  short_description: "Check claims, numbers, sources, and citations"
+  default_prompt: "Use $ai-report-evidence to check this report against the permitted sources and identify unsupported claims."

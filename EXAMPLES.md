@@ -1,47 +1,48 @@
-# Example requests and review cases
+# Example requests and acceptance cases
 
-These are synthetic requests and acceptance criteria, not experimental results or benchmark claims. Use only the cases relevant to a change.
+These are synthetic requests, not measured outcomes. Select only cases relevant to a change. English instructions should preserve the user's requested report language.
 
-| Request | Expected routing | What to inspect |
+| Request | Primary routing | Acceptance criterion |
 | --- | --- | --- |
-| Fix spelling in one paragraph; preserve all values. | Writing | Only the selected language changes; numbers, units, citations, and scope remain intact. |
-| Build an outline from supplied notes. | Writing | Each section has a purpose and available material; gaps do not become invented results. |
-| Check whether a citation supports a claim. | Evidence | Inspect the actual passage; a matching topic is not enough. |
-| Compare tables measured under different settings. | Evidence | Check conditions and metric conventions before drawing a conclusion. |
-| Match table formatting to a sample. | Formatting | Preserve values, merged cells, equations, and captions; inspect affected pages. |
-| Rewrite a DOCX section containing equations and fields. | Writing + formatting | Read preservation guidance before editing; keep surrounding structure intact. |
-| Create a report from notes and approved sources. | All three, by stage | Check evidence, prose, and layout separately; keep missing material explicit. |
-| This project uses a different outline and table style. | Relevant skill + project rules | Actual requirements win over generic examples or historical preferences. |
+| Fix spelling in one paragraph, preserve values | Writing | Only the requested language changes; no full audit or unrelated rewrite. |
+| Write an operational update from notes | Writing | Distinguish completed work, blockers, and proposed actions; do not invent owners or dates. |
+| Produce a business decision memo | Writing + evidence as needed | Separate facts, assumptions, tradeoffs, and recommendation; no fabricated costs. |
+| Verify a citation using attached sources only | Evidence | Read actual support; do not expand the source set or infer support from a title. |
+| Reorganize an existing report with reviewer comments | Revision + writing | Preserve the change map, objects, comments, and other authors' edits. |
+| Resume after a failed save response | Revision + document QA | Inspect current state before retrying; do not overwrite a newer revision. |
+| Match a table's presentation to a sample | Formatting | Preserve values and formulas; inspect the affected layout. |
+| Convert a cloud document to DOCX | Document QA | Check current revision, retained features, actual exported file, and target app limits. |
+| Prepare Markdown/HTML for screen reading | Formatting + QA as needed | Verify semantic hierarchy, links, figures and readable view; do not invent fixed page numbers. |
+| Build a LaTeX report for PDF delivery | Document QA | Use the existing build, check references and warnings, inspect the final PDF. |
+| Compare parameters or metrics across sources | Source comparison | Preserve definitions, conditions and versions; mark unreported values. |
+| Review a before/after causal claim | Critical review + evidence | Consider other explanations; distinguish missing detail from a demonstrated flaw. |
+| Present a benchmark as proof of deployment readiness | Critical review | Keep benchmark observations separate from unmeasured operational acceptance. |
+| Complete a report from approved materials | Core workflow; specialists as needed | Check support, prose, presentation, and final artifact separately. |
 
-## Vietnamese prompts
+## Concrete examples
 
-### Rewrite without expanding scope
+### Same label, different metric
 
-Dùng ai-report-writing viết lại đoạn được chọn cho dễ hiểu. Giữ nguyên số liệu,
-ký hiệu, điều kiện đo và mức độ chắc chắn; không thêm luận điểm mới.
+Synthetic sources: one document reports a daily mean of per-team percentages; another reports a percentage calculated from pooled monthly counts.
 
-Review: improve the prose without turning a possibility into a confirmed result.
-A rewrite of unrelated sections is a failure.
+Request: “Explain why these two rates differ.”
 
-### Review evidence without editing
+Expected behavior: source comparison identifies denominator, weighting, and period differences before a numeric comparison. It does not label one source wrong or claim a causal explanation without evidence.
 
-Dùng ai-report-evidence đối chiếu nhận định với các nguồn tôi cho phép. Ghi vị trí,
-bằng chứng và đề xuất sửa; chưa chỉnh tệp báo cáo.
+### Scoped wording in Vietnamese
 
-Review: findings need usable locations. Do not invent a DOI, silently expand
-the source set, or mutate the document.
+Request: “Viết lại đoạn được chọn cho dễ hiểu, giữ số liệu và mức độ chắc chắn.”
 
-### Format an editable document
+Expected behavior: improve the Vietnamese prose, preserve values and qualifiers, and leave unselected sections alone. The English SKILL.md is not a reason to translate the report.
 
-Dùng ai-report-formatting làm bảng theo mẫu hiện có. Giữ nguyên số liệu và công thức,
-kiểm tra trong ứng dụng đích và báo rõ nếu chưa render được.
+### Conversion with an unavailable renderer
 
-Review: an output file existing on disk is insufficient. Check preservation and
-rendered layout separately. Do not replace editable equations with screenshots.
+Request: “Convert this report and confirm the layout is identical.”
 
-## Recording a real evaluation
+Expected behavior: perform only the supported conversion and structural checks, identify the unavailable target-application check, and avoid claiming visual equivalence. A ZIP check cannot close this gap.
 
-Record input scope, host/version, selected skills, artifacts inspected, output
-changes, and unresolved limits. Keep private evaluation material outside the public
-package. Describe observed behavior; do not mark a case passed merely because the
-instructions contain matching words.
+## Recording an actual evaluation
+
+Record the request, available source, selected skill, output, actual checks, and limits. Use synthetic or authorized materials. Keep private artifacts outside the repository.
+
+Do not mark a case passed because the instructions contain its expected wording. A package validator checks structure, not reasoning quality or host behavior.

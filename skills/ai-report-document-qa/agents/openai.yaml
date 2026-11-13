@@ -1,0 +1,4 @@
+interface:
+  display_name: "Report Document QA"
+  short_description: "Preserve and verify editable report artifacts"
+  default_prompt: "Use $ai-report-document-qa to verify this report's content, structure, and final presentation in the requested environment."

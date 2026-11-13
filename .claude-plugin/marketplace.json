@@ -4,15 +4,15 @@
     "name": "TienguyenVT"
   },
   "metadata": {
-    "description": "Focused skills for writing and reviewing reports with AI.",
-    "version": "0.1.0"
+    "description": "Reusable report workflows with English skills and English/Vietnamese documentation.",
+    "version": "0.2.0"
   },
   "plugins": [
     {
       "name": "ai-report-skills",
       "source": "./",
-      "description": "Report writing, evidence review, and document formatting.",
-      "version": "0.1.0",
+      "description": "Seven focused skills for writing, checking, revising, and presenting reports.",
+      "version": "0.2.0",
       "author": {
         "name": "TienguyenVT"
       },

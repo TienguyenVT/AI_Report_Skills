@@ -1,120 +1,146 @@
 # AI Report Skills
 
-Ba skill chuyên biệt giúp AI viết, kiểm chứng và trình bày báo cáo.
+Bảy skill chuyên trách giúp AI viết, kiểm chứng, chỉnh sửa và trình bày báo cáo.
 
 [English](README.md) | **Tiếng Việt**
 
-Bộ hướng dẫn dùng cho báo cáo học thuật, kỹ thuật và công việc. Nội dung skill viết bằng tiếng Việt và tôn trọng ngôn ngữ, mẫu trình bày, phạm vi nguồn của từng báo cáo.
+Các tệp **SKILL.md viết bằng tiếng Anh**; báo cáo vẫn dùng ngôn ngữ người dùng yêu cầu. Bộ skill dành cho báo cáo học thuật, kỹ thuật, kinh doanh, vận hành và giáo dục, theo đúng mẫu, đối tượng đọc, phạm vi nguồn và ứng dụng đích của từng công việc.
 
-## Bộ skill giải quyết việc gì?
+## Chọn skill theo công việc
 
-AI có thể viết trôi chảy nhưng đổi ý nghĩa, thêm nguồn không có thật, so sánh số liệu khác điều kiện hoặc làm mất cấu trúc DOCX. Bộ này chia trách nhiệm để AI dùng đúng hướng dẫn theo việc được giao.
-
-| Skill | Vai trò |
+| Skill | Công việc phù hợp |
 | --- | --- |
-| [ai-report-writing](skills/ai-report-writing/SKILL.md) | Lập dàn ý, viết, biên tập, tổ chức lập luận, thống nhất thuật ngữ và giảm lặp. |
-| [ai-report-evidence](skills/ai-report-evidence/SKILL.md) | Đối chiếu số liệu, nhận định, điều kiện thí nghiệm, phép so sánh và nguồn trích dẫn. |
-| [ai-report-formatting](skills/ai-report-formatting/SKILL.md) | Chuẩn hóa Word/WPS, bảng, hình, công thức, mục lục, số trang và kiểm tra bản kết xuất. |
+| [ai-report-writing](skills/ai-report-writing/SKILL.md) | Lập dàn ý, viết mới, viết lại, tổng hợp tài liệu, thống nhất thuật ngữ và diễn đạt. |
+| [ai-report-evidence](skills/ai-report-evidence/SKILL.md) | Kiểm tra nhận định, số liệu, phương pháp, nguồn và trích dẫn. |
+| [ai-report-formatting](skills/ai-report-formatting/SKILL.md) | Cấp mục, style, bảng, hình, công thức, điều hướng và bố cục. |
+| [ai-report-revision](skills/ai-report-revision/SKILL.md) | Sửa báo cáo có sẵn, xử lý góp ý, tái cấu trúc, xung đột phiên bản và tiếp tục việc bị gián đoạn. |
+| [ai-report-document-qa](skills/ai-report-document-qa/SKILL.md) | Bảo toàn nội dung, khả năng chỉnh sửa, xuất/chuyển đổi và kiểm tra tệp cuối. |
+| [ai-report-source-comparison](skills/ai-report-source-comparison/SKILL.md) | Đối chiếu định nghĩa, chỉ số, cấu hình, phương pháp, yêu cầu và điều kiện so sánh. |
+| [ai-report-critical-review](skills/ai-report-critical-review/SKILL.md) | Đánh giá liệu thiết kế, lập luận, phép so sánh và độ bất định có hỗ trợ kết luận hay không. |
 
-[Rule điều phối](rules/REPORT_SKILL_ROUTING.md) chọn skill theo yêu cầu. Sửa chính tả chỉ dùng phần cần thiết; làm báo cáo hoàn chỉnh mới phối hợp cả ba theo từng giai đoạn.
+[Rule phân luồng](rules/REPORT_SKILL_ROUTING.md) chọn số skill cần thiết cho từng việc. Sửa câu chữ có thể chỉ cần skill viết. Làm báo cáo đầy đủ đi từ bằng chứng đến nội dung, trình bày và kiểm tra; bổ sung skill chuyên trách khi có nhu cầu.
+
+Ba skill kinh nghiệm được khái quát hóa từ quá trình biên tập báo cáo, xử lý Word/WPS và truy cấu hình bài báo. Các phần viết, bằng chứng, trình bày và phản biện còn tiếp nhận có chọn lọc nội dung từ bộ scientific skills của K-Dense đã cài trước đó. [PROVENANCE.md](PROVENANCE.md) ghi nguồn, phiên bản đối chiếu, phần tiếp nhận và phần loại bỏ.
+
+## Định dạng và ứng dụng
+
+Bộ skill có hướng dẫn trình bày và kiểm tra cho Word/WPS/LibreOffice, tài liệu đám mây, Markdown/HTML, LaTeX, PDF, cùng báo cáo trình bày qua bảng tính hoặc slide. Xem [hướng dẫn theo định dạng](skills/ai-report-document-qa/references/format-checks.md).
+
+Đây là hướng dẫn quy trình. Khả năng sửa tệp, truy cập tài liệu đám mây, kết xuất và tự chọn skill phụ thuộc công cụ của ứng dụng AI. Repo không kèm bộ điều khiển ứng dụng và không khẳng định đã thử trên mọi ứng dụng.
 
 ## Cài đặt
 
-Cài trực tiếp từ [TienguyenVT/AI_Report_Skills](https://github.com/TienguyenVT/AI_Report_Skills), hoặc clone để dùng bản local:
+Nếu sử dụng trực tiếp các tệp:
 
 ```bash
 git clone https://github.com/TienguyenVT/AI_Report_Skills.git
 cd AI_Report_Skills
 ```
 
-### Claude Code
+### Plugin cho Claude Code
 
-Trong phiên Claude Code:
+Chạy trong phiên Claude Code:
 
 ```text
 /plugin marketplace add TienguyenVT/AI_Report_Skills
 /plugin install ai-report-skills@ai-report-skills
 ```
 
-Plugin cung cấp ba skill qua manifest trong .claude-plugin/. Chọn skill từ danh sách của ứng dụng hoặc gọi bằng tên; tên hiển thị có thể kèm namespace của plugin.
+[Manifest plugin](.claude-plugin/plugin.json) khai báo đủ bảy skill. Chọn từ menu của ứng dụng hoặc gọi theo tên; ứng dụng có thể thêm tên plugin vào tên skill.
 
-Muốn điều phối ở cấp dự án, ghép [rule](rules/REPORT_SKILL_ROUTING.md) vào CLAUDE.md của dự án sử dụng. Cài plugin không tự chép CLAUDE.md ở gốc repository này vào các dự án khác. Validator Claude có cảnh báo về giới hạn này; tệp vẫn hữu ích khi làm việc ngay trong repository.
+Để phân luồng theo dự án, ghép [rules/REPORT_SKILL_ROUTING.md](rules/REPORT_SKILL_ROUTING.md) vào CLAUDE.md của dự án đó. Việc cài plugin không tự đưa CLAUDE.md ở gốc repo này vào dự án khác. Trình kiểm tra Claude có thể cảnh báo tệp đó chỉ là ngữ cảnh của dự án hiện tại.
 
-### Codex
+### Cài skill độc lập cho Codex
 
-Chép đầy đủ các thư mục skill cần dùng trong skills/ vào một nơi:
+Sao chép **nguyên thư mục skill** cần dùng, gồm LICENSE.txt, references và agents, vào một trong các vị trí:
 
-| Phạm vi | Thư mục |
+| Phạm vi | Nơi cài |
 | --- | --- |
-| Riêng dự án | .agents/skills/ trong dự án đó |
-| Dùng cá nhân | ~/.agents/skills/ |
+| Một dự án | .agents/skills/ trong dự án |
+| Cá nhân | ~/.agents/skills/ |
 
-Giữ cả references và agents nếu có. Bảo toàn bản đã cài và tránh tạo hai bản trùng tên ở nhiều vị trí. Ghép rule điều phối vào AGENTS.md của dự án cần dùng.
+Giữ các thư mục đã có và tránh cài trùng tên skill ở nhiều nơi. Ghép rule phân luồng vào AGENTS.md của dự án sử dụng. Các skill phối hợp là tùy nhu cầu, không bắt buộc cài tất cả.
 
-Trong Codex CLI hoặc IDE extension:
+Ví dụ:
 
 ```text
-$ai-report-writing Viết lại mục này cho mạch lạc, giữ nguyên ý và số liệu.
+$ai-report-writing Viết lại mục này bằng tiếng Việt cho rõ ràng, giữ nguyên bằng chứng.
 ```
 
-Ngoài ra có [manifest plugin](plugin.json) và [catalog Codex](.agents/plugins/marketplace.json). Với client hỗ trợ marketplace local, có thể dùng cách cài plugin thay cho chép skill:
+Repo cũng có [plugin.json](plugin.json) và [danh mục marketplace Codex](.agents/plugins/marketplace.json). Với ứng dụng có hỗ trợ marketplace plugin:
 
 ```bash
 codex plugin marketplace add TienguyenVT/AI_Report_Skills
 ```
 
-Sau đó cài từ marketplace tương ứng trong giao diện plugin desktop. Không cần dùng đồng thời hai cách.
+Sau đó cài plugin từ marketplace qua danh mục plugin của ứng dụng. Chọn plugin hoặc các thư mục skill độc lập; không cần cài cả hai.
 
-Đối chiếu [hướng dẫn skill chính thức](https://developers.openai.com/codex/skills/) và [hướng dẫn plugin chính thức](https://developers.openai.com/plugins/build/plugins). Nạp lại hoặc khởi động lại ứng dụng nếu skill mới chưa xuất hiện.
+Tham khảo [tài liệu skill chính thức](https://developers.openai.com/codex/skills/) và [tài liệu đóng gói plugin](https://developers.openai.com/plugins/build/plugins). Tải lại ứng dụng nếu chưa thấy skill mới.
 
-### Cursor hoặc agent khác
+### Cursor và các trợ lý khác
 
-Repository có [rule Cursor](.cursor/rules/report-skills.mdc) dành cho tác vụ báo cáo, không bật cho mọi yêu cầu.
+[Rule Cursor](.cursor/rules/report-skills.mdc) chỉ dành cho công việc báo cáo. Sao chép rule này, rule phân luồng và các thư mục skills/ cần dùng cùng nhau; giữ cấu trúc đường dẫn hoặc điều chỉnh khi cài ở vị trí khác.
 
-Khi chuyển sang dự án khác, chép cả rule Cursor, rules/REPORT_SKILL_ROUTING.md và thư mục skills/, giữ nguyên đường dẫn tương đối hoặc sửa cho khớp nơi đã cài.
+Nếu ứng dụng không tự phát hiện skill, cung cấp trực tiếp rule phân luồng và SKILL.md được chọn, kèm tài liệu tham chiếu khi công việc cần. Cách gọi và khả năng tự chọn skill phụ thuộc ứng dụng.
 
-Với agent khác, yêu cầu đọc rule và SKILL.md cần dùng. Khả năng tự chọn skill phụ thuộc ứng dụng; bộ hướng dẫn không tự cài công cụ.
-
-## Ví dụ giao việc
+## Ví dụ yêu cầu
 
 ```text
-Dùng ai-report-writing sắp xếp lại chương này theo dàn ý đã duyệt,
-giữ đầy đủ công thức, bảng, hình và số liệu.
+Dùng ai-report-revision để áp dụng góp ý vào bản báo cáo hiện tại.
+Giữ các chỉnh sửa không liên quan và lập đối chiếu cho những mục bị di chuyển.
 
-Dùng ai-report-evidence kiểm tra kết luận theo tài liệu đính kèm.
-Chỉ nêu chỗ sai hoặc thiếu bằng chứng, chưa sửa bản báo cáo.
+Dùng ai-report-source-comparison để so sánh hai cách định nghĩa KPI này.
+Làm rõ tập đối tượng, kỳ báo cáo và mẫu số của mỗi bên.
 
-Dùng ai-report-formatting chuẩn hóa bảng theo mẫu trong WPS.
-Giữ nguyên dữ liệu và kiểm tra bố cục bản cuối.
+Dùng ai-report-critical-review để đánh giá kết luận nhân quả này.
+Chỉ nhận xét, chưa chỉnh sửa báo cáo.
+
+Dùng ai-report-document-qa để kiểm tra bản tài liệu còn chỉnh sửa được và PDF.
+Nêu ứng dụng kết xuất và những bước chưa thể kiểm tra.
 ```
 
-[Xem thêm tình huống và tiêu chí kiểm tra](EXAMPLES.md). Đây là tiêu chí để thử hành vi, không phải kết quả nghiệm thu mọi tích hợp hoặc chất lượng biên tập.
+[EXAMPLES.md](EXAMPLES.md) có các tình huống và tiêu chí nghiệm thu. Đây là ca tham khảo để đánh giá, không phải tuyên bố đã vượt qua thử nghiệm chất lượng viết hoặc tương thích ứng dụng.
 
-## Kiểm tra và phát triển
+## Cấu trúc repo
 
-Đọc skill không cần Python. Các kiểm tra dành cho người duy trì cần Python từ 3.10:
+```text
+skills/                           Bảy skill, tham chiếu, metadata, giấy phép
+rules/REPORT_SKILL_ROUTING.md      Chọn skill và phối hợp theo nhiệm vụ
+plugin.json                       Định danh plugin
+.claude-plugin/                   Manifest plugin và marketplace Claude
+.agents/plugins/marketplace.json  Danh mục marketplace Codex
+.cursor/rules/                    Rule dự án cho Cursor
+AGENTS.md / CLAUDE.md              Hướng dẫn duy trì repo/ngữ cảnh
+PROVENANCE.md                     Nguồn và cách chuyển thể
+THIRD_PARTY_NOTICES.md            Ghi công và lưu ý phân phối lại
+licenses/                         Nguyên văn giấy phép nguồn bên ngoài
+scripts/validate.py               Kiểm tra cấu trúc và gói phân phối
+```
+
+## Kiểm tra và đóng góp
+
+Cần Python 3.10 trở lên khi chạy kiểm tra phát triển; không cần Python để đọc skill.
 
 ```bash
 python -m pip install -r requirements-dev.txt
 python scripts/validate.py
-python -m unittest discover -s tests
 ```
 
-Nếu đã cài Claude Code:
+Nếu đã có Claude Code:
 
 ```bash
 claude plugin validate .claude-plugin/plugin.json
 claude plugin validate .claude-plugin/marketplace.json
 ```
 
-GitHub Actions chạy kiểm tra metadata, manifest, đường dẫn, liên kết Markdown và một số dấu hiệu tệp riêng tư. Kiểm tra này không chứng minh tính đúng khoa học, chất lượng viết, khả năng tự chọn skill hoặc bố cục Word/WPS.
+GitHub Actions chạy kiểm tra ngoại tuyến về metadata, manifest, liên kết nội bộ, tài nguyên độc lập, thông báo giấy phép và một số dấu hiệu tệp riêng tư. Các bước này không chứng minh chất lượng viết, tính đúng của nhận định, khả năng tự phân luồng hay tương thích kết xuất.
 
-## Giới hạn và giấy phép
+Xem [CONTRIBUTING.md](CONTRIBUTING.md) để biết cách đóng góp và đánh giá thay đổi.
 
-Bộ này cung cấp hướng dẫn, không cung cấp trình render hoặc cơ sở dữ liệu bằng chứng. Sửa DOCX/PDF thực tế cần công cụ phù hợp.
+## Giấy phép và phạm vi
 
-Mẫu, số chương, font, kiểu bảng và nguồn được phép do từng báo cáo quyết định. Skill không cấp quyền tự gửi dữ liệu, công bố, nộp bài hoặc tạo số liệu. Gói không chứa hook, MCP server, khóa truy cập hoặc dữ liệu báo cáo.
+Phát hành theo [MIT](LICENSE). Khi phân phối riêng một skill, giữ LICENSE.txt của skill đó. Phần chuyển thể từ K-Dense giữ nguyên thông báo MIT của nguồn; xem [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
 
-Xem [hướng dẫn đóng góp](CONTRIBUTING.md) và [giấy phép MIT](LICENSE).
+Cách tổ chức gói lấy cảm hứng từ [multica-ai/andrej-karpathy-skills](https://github.com/multica-ai/andrej-karpathy-skills). Repo này không có quan hệ đại diện hoặc bảo trợ từ hai dự án nguồn.
 
-Cách tổ chức tham khảo [multica-ai/andrej-karpathy-skills](https://github.com/multica-ai/andrej-karpathy-skills); nội dung hướng dẫn báo cáo được biên soạn riêng từ kinh nghiệm biên tập. Dự án không có quan hệ bảo trợ hoặc liên kết chính thức với repository đó.
+Bộ skill không áp đặt lĩnh vực, số chương, font, kiểu trích dẫn hay sở thích cũ của một người dùng. Gói không chứa báo cáo thật, thông tin đăng nhập, hook hay MCP server. Việc dùng skill không tự cấp quyền tải dữ liệu lên, công bố, nộp bài, chạy thí nghiệm hoặc sửa nội dung ngoài nhiệm vụ.
